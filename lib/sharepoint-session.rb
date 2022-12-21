@@ -49,7 +49,7 @@ module Sharepoint
     def cookie
       "FedAuth=#{@fed_auth};rtFa=#{@rtFa}"
     end
-
+    
   private
     def authenticate_to_sts user, password, sts_url
       query    = Soap::Authenticate.new username: user, password: password, url: @site.authentication_path

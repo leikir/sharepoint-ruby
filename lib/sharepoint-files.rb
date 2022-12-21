@@ -13,6 +13,8 @@ module Sharepoint
     method :recycle
 
     def file_from_name name
+      puts "XAVIER"
+      byebug
       @site.query :get, "#{__metadata['uri']}/files/getbyurl('#{URI::Parser.new.escape(name.to_s)}')"
     end
 
@@ -85,6 +87,10 @@ module Sharepoint
       end
       uri = "#{__metadata['uri']}/finishupload(uploadId=guid'#{uuid}',fileOffset=#{bytes_written})"
       result = @site.query :post, uri, nil, skip_json: true
+    end
+
+    def anonymous_link_with_expiration
+
     end
   end
 

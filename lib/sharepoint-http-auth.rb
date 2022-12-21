@@ -12,6 +12,7 @@ module Sharepoint
       end
 
       def authenticate user, password
+        byebug
         @user     = user
         @password = password
       end
